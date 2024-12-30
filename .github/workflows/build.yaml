@@ -15,4 +15,5 @@ jobs:
         with:
           python-version: "3.10"
           cache: pip
-      - run: pip install -r requirements.txt
+      - run: pip install PySide2 usd-core pyqtdarktheme pyinstaller
+      - run: pyinstaller --onefile --nowindow pyside2_openusd.py
