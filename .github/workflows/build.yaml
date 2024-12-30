@@ -3,23 +3,16 @@ name: Build Python Executable
 on:
   push:
     branches:
-    - main
+      - main
 permissions:
   contents: read
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os:
-          - windows-latest
-          # - macos-latest
-          # - ubuntu-latest
-        python-version: '3.10'
+    runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-      with:
-        python-version: '3.13'
-        cache: 'pip' # caching pip dependencies
-    - run: pip install -r requirements.txt
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+      - run: pip install -r requirements.txt
